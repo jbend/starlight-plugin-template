@@ -5,7 +5,7 @@ import type { StarlightTemplateConfig } from "..";
 export function vitePluginStarlightTemplate(
 	config: StarlightTemplateConfig,
 ): VitePlugin {
-	const moduleId = "virtual:starlight-template-config";
+	const moduleId = "virtual:starlight-plugin-template-config";
 	const resolvedModuleId = `\0${moduleId}`;
 	const moduleContent = `export default ${JSON.stringify(config)}`;
 

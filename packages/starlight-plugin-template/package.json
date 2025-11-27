@@ -10,6 +10,7 @@
 	},
 	"exports": {
 		".": "./index.ts",
+		"./components/AccentSection.astro": "./components/AccentSection.astro",
 		"./package.json": "./package.json"
 	},
 	"peerDependencies": {

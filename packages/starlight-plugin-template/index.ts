@@ -18,14 +18,21 @@ export default function starlightTemplatePlugin(
 		StarlightTemplateConfigSchema.safeParse(userConfig);
 
 	// Get absolute path to the component
-	const accentSectionPath = join(__dirname, "components", "AccentSection.astro");
+	const accentSectionPath = join(
+		__dirname,
+		"components",
+		"AccentSection.astro",
+	);
 
 	return {
 		name: "starlight-plugin-template",
 		hooks: {
-			"config:setup": async ({ updateConfig, logger, addIntegration }) => {
-
-				logger.info(`Node environment: ${nodeEnv}`);
+			"config:setup": async ({
+				updateConfig,
+				logger,
+				addIntegration,
+				config: starlightConfig,
+			}) => {
 				const parsedSuccess = starlightTemplateConfig.success;
 				if (!parsedSuccess) {
 					logger.error(`${starlightTemplateConfig.error.message}`);
@@ -40,6 +47,7 @@ export default function starlightTemplatePlugin(
 				updateConfig({
 					components: {
 						AccentSection: accentSectionPath,
+						...starlightConfig.components,
 					},
 				});
 
