@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "concurrently \"pnpm --filter starlight-plugin-template-docs dev\" \"pnpm --filter starlight-plugin-template  build --watch\"",
 		"build": "pnpm --filter starlight-plugin-template build",
+		"build:docs": "pnpm --filter starlight-plugin-template-docs build",
 		"build:all": "pnpm --filter starlight-plugin-template build && pnpm --filter starlight-plugin-template-docs build",
 		"test": "pnpm -r test",
 		"check": "astro check --root docs",
