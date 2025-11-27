@@ -8,5 +8,9 @@ export const StarlightTemplateConfigSchema = z.object({
 	templateParameter: TemplateParameterSchema,
 });
 
-export type StarlightTemplateUserConfig = z.infer<typeof StarlightTemplateConfigSchema>;
-export type StarlightTemplateConfig = z.infer<typeof StarlightTemplateConfigSchema>;
+export type StarlightTemplateUserConfig = z.infer<
+	typeof StarlightTemplateConfigSchema
+>;
+export type StarlightTemplateConfig = z.infer<
+	typeof StarlightTemplateConfigSchema
+>;

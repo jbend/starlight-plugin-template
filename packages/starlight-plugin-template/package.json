@@ -5,8 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "tsdown --format esm --format cjs",
-		"dev": "tsdown ./index.ts --watch",
-		"test": "echo \"No tests specified\" && exit 0"
+		"dev": "tsdown ./index.ts --watch"
 	},
 	"exports": {
 		".": "./index.ts",

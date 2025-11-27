@@ -14,7 +14,8 @@ export type { StarlightTemplateConfig } from "@libs/config";
 export default function starlightTemplatePlugin(
 	userConfig?: StarlightTemplateConfig,
 ): StarlightPlugin {
-	const starlightTemplateConfig = StarlightTemplateConfigSchema.safeParse(userConfig);
+	const starlightTemplateConfig =
+		StarlightTemplateConfigSchema.safeParse(userConfig);
 
 	// Get absolute path to the SkipLink component
 	const skipLinkPath = join(__dirname, "overrides", "SkipLink.astro");
@@ -29,10 +30,10 @@ export default function starlightTemplatePlugin(
 					return;
 				}
 
-				const templateParameter = starlightTemplateConfig.data?.templateParameter;
+				const templateParameter =
+					starlightTemplateConfig.data?.templateParameter;
 
 				logger.info(`Reading template parameter: ${templateParameter}`);
-
 
 				// updateConfig({
 				// 	components: {
@@ -52,7 +53,9 @@ export default function starlightTemplatePlugin(
 						"astro:config:setup": ({ updateConfig }) => {
 							updateConfig({
 								vite: {
-									plugins: [vitePluginStarlightTemplate(starlightTemplateConfig.data)],
+									plugins: [
+										vitePluginStarlightTemplate(starlightTemplateConfig.data),
+									],
 								},
 							});
 						},

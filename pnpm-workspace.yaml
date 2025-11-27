@@ -3,8 +3,8 @@ packages:
   - docs
 
 catalog:
-  "@astrojs/check": ^0.9.5
-  "@astrojs/starlight": ^0.36.2
-  astro: ^5.15.9
+  '@astrojs/check': ^0.9.6
+  '@astrojs/starlight': ^0.36.2
+  astro: 5.16.1
   sharp: ^0.34.5
   typescript: ^5.5.4

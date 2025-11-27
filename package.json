@@ -1,9 +1,9 @@
 {
-  "name": "starlight-plugin-template",
-  "version": "0.0.1",
-  "description": "Starlight Plugin Template",
-  "main": "index.js",
-  "scripts": {
+	"name": "starlight-plugin-template",
+	"version": "0.0.1",
+	"description": "Starlight Plugin Template",
+	"main": "index.js",
+	"scripts": {
 		"dev": "concurrently \"pnpm --filter starlight-plugin-template-docs dev\" \"pnpm --filter starlight-plugin-template  build --watch\"",
 		"build": "pnpm --filter starlight-plugin-template build",
 		"build:all": "pnpm --filter starlight-plugin-template build && pnpm --filter starlight-plugin-template-docs build",
@@ -13,13 +13,22 @@
 		"version": "pnpm changeset version && pnpm i --no-frozen-lockfile",
 		"changeset": "changeset",
 		"release": "changeset publish"
-  },
-  "keywords": [
-    "astro",
-    "starlight",
-    "plugin"
-  ],
-  "author": "jbend",
-  "license": "MIT",
-  "packageManager": "pnpm@10.17.0"
+	},
+	"keywords": [
+		"astro",
+		"starlight",
+		"plugin"
+	],
+	"author": "jbend",
+	"license": "MIT",
+	"packageManager": "pnpm@10.17.0",
+	"devDependencies": {
+		"@astrojs/check": "catalog:",
+		"@biomejs/biome": "^2.3.8",
+		"@changesets/changelog-github": "^0.5.2",
+		"@changesets/cli": "^2.29.8",
+		"@types/node": "^24.10.1",
+		"astro": "catalog:",
+		"concurrently": "^9.2.1"
+	}
 }
