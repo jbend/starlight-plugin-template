@@ -4,10 +4,22 @@
   "description": "Starlight Plugin Template",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+		"dev": "concurrently \"pnpm --filter starlight-plugin-template-docs dev\" \"pnpm --filter starlight-plugin-template  build --watch\"",
+		"build": "pnpm --filter starlight-plugin-template build",
+		"build:all": "pnpm --filter starlight-plugin-template build && pnpm --filter starlight-plugin-template-docs build",
+		"test": "pnpm -r test",
+		"check": "astro check --root docs",
+		"lint": "biome check --write",
+		"version": "pnpm changeset version && pnpm i --no-frozen-lockfile",
+		"changeset": "changeset",
+		"release": "changeset publish"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "astro",
+    "starlight",
+    "plugin"
+  ],
+  "author": "jbend",
   "license": "MIT",
   "packageManager": "pnpm@10.17.0"
 }

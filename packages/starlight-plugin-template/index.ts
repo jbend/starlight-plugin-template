@@ -1,20 +1,20 @@
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { StarlightPlugin } from "@astrojs/starlight/types";
-import type { StarlightGTMConfig } from "./libs/config";
-import { StarlightGTMConfigSchema } from "./libs/config";
-import { vitePluginStarlightGTM } from "./libs/vite";
+import type { StarlightTemplateConfig } from "@libs/config";
+import { StarlightTemplateConfigSchema } from "@libs/config";
+import { vitePluginStarlightTemplate } from "@libs/vite";
 
 // Get the directory of this file
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export type { StarlightGTMConfig } from "./libs/config";
+export type { StarlightTemplateConfig } from "@libs/config";
 
-export default function starlightGTMPlugin(
-	userConfig?: StarlightGTMConfig,
+export default function starlightTemplatePlugin(
+	userConfig?: StarlightTemplateConfig,
 ): StarlightPlugin {
-	const starlightGTMConfig = StarlightGTMConfigSchema.safeParse(userConfig);
+	const starlightTemplateConfig = StarlightTemplateConfigSchema.safeParse(userConfig);
 
 	// Get absolute path to the SkipLink component
 	const skipLinkPath = join(__dirname, "overrides", "SkipLink.astro");
@@ -23,44 +23,36 @@ export default function starlightGTMPlugin(
 		name: "starlight-gtm",
 		hooks: {
 			"config:setup": async ({ updateConfig, logger, addIntegration }) => {
-				const parsedSuccess = starlightGTMConfig.success;
+				const parsedSuccess = starlightTemplateConfig.success;
 				if (!parsedSuccess) {
-					logger.error(`${starlightGTMConfig.error.message}`);
+					logger.error(`${starlightTemplateConfig.error.message}`);
 					return;
 				}
 
-				const gtmId = starlightGTMConfig.data?.gtmId;
+				const templateParameter = starlightTemplateConfig.data?.templateParameter;
 
-				logger.info(`Reading GTM ID: ${gtmId}`);
+				logger.info(`Reading template parameter: ${templateParameter}`);
 
-				// GTM script for head
-				const gtmHeadScript = `
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${gtmId}');
-        `;
 
-				updateConfig({
-					components: {
-						SkipLink: skipLinkPath,
-					},
-					head: [
-						{
-							tag: "script",
-							content: gtmHeadScript,
-						},
-					],
-				});
+				// updateConfig({
+				// 	components: {
+				// 		SkipLink: skipLinkPath,
+				// 	},
+				// 	head: [
+				// 		{
+				// 			tag: "script",
+				// 			content: gtmHeadScript,
+				// 		},
+				// 	],
+				// });
 
 				addIntegration({
-					name: "starlight-gtm-integration",
+					name: "starlight-template-integration",
 					hooks: {
 						"astro:config:setup": ({ updateConfig }) => {
 							updateConfig({
 								vite: {
-									plugins: [vitePluginStarlightGTM(starlightGTMConfig.data)],
+									plugins: [vitePluginStarlightTemplate(starlightTemplateConfig.data)],
 								},
 							});
 						},
