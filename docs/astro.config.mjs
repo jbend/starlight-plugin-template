@@ -5,6 +5,8 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://starlight-plugin-template.github.io',
+	base: '/starlight-plugin-template',
 	integrations: [
 		starlight({
 			title: "Plugin Template",
