@@ -1,6 +1,7 @@
 {
 	"name": "starlight-plugin-template",
 	"version": "1.0.0",
+	"type": "module",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
@@ -17,7 +18,8 @@
 	"devDependencies": {
 		"@types/node": "^24.10.1",
 		"tsdown": "^0.16.7",
-		"typescript": "^5.9.3"
+		"typescript": "^5.9.3",
+		"zod": "^4.1.13"
 	},
 	"keywords": [
 		"astro",
@@ -26,8 +28,5 @@
 	],
 	"author": "jbend",
 	"license": "MIT",
-	"packageManager": "pnpm@10.17.0",
-	"dependencies": {
-		"zod": "^4.1.13"
-	}
+	"packageManager": "pnpm@10.17.0"
 }

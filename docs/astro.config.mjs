@@ -2,6 +2,7 @@
 
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
+import starlightPluginTemplate from "starlight-plugin-template";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,6 +11,10 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "Plugin Template",
+			plugins: [
+				starlightPluginTemplate({ 
+					templateParameter: "Hello, Starlight!" 
+			})],
 			social: [
 				{
 					icon: "github",

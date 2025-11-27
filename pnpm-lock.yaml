@@ -4,21 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-catalogs:
-  default:
-    '@astrojs/check':
-      specifier: ^0.9.6
-      version: 0.9.6
-    '@astrojs/starlight':
-      specifier: ^0.36.2
-      version: 0.36.3
-    astro:
-      specifier: 5.16.1
-      version: 5.16.1
-    sharp:
-      specifier: ^0.34.5
-      version: 0.34.5
-
 importers:
 
   .:
@@ -65,9 +50,6 @@ importers:
       '@astrojs/starlight':
         specifier: 'catalog:'
         version: 0.36.3(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.1))
-      zod:
-        specifier: ^4.1.13
-        version: 4.1.13
     devDependencies:
       '@types/node':
         specifier: ^24.10.1
@@ -78,6 +60,9 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      zod:
+        specifier: ^4.1.13
+        version: 4.1.13
 
 packages:
 

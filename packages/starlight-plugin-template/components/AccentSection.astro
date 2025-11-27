@@ -1,0 +1,17 @@
+---
+import starlightTemplateConfig from "virtual:starlight-plugin-template-config";
+
+const templateParameter = starlightTemplateConfig.templateParameter;
+
+---
+
+<div class="accent-section">
+  <h1>{templateParameter}</h1>
+  <slot />
+</div>
+
+<style>
+  .accent-section {
+    background-color: var(--sl-color-accent)
+  }
+</style>

@@ -11,9 +11,6 @@
 		"declaration": true,
 		"outDir": "./dist",
 		"rootDir": "./",
-		"paths": {
-			"@libs/*": ["./libs/*"]
-		},
 		"types": ["node"]
 	},
 	"include": ["index.ts"],

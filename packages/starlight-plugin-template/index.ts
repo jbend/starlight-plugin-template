@@ -1,15 +1,15 @@
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { StarlightPlugin } from "@astrojs/starlight/types";
-import type { StarlightTemplateConfig } from "@libs/config";
-import { StarlightTemplateConfigSchema } from "@libs/config";
-import { vitePluginStarlightTemplate } from "@libs/vite";
+import type { StarlightTemplateConfig } from "./libs/config";
+import { StarlightTemplateConfigSchema } from "./libs/config";
+import { vitePluginStarlightTemplate } from "./libs/vite";
 
 // Get the directory of this file
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export type { StarlightTemplateConfig } from "@libs/config";
+export type { StarlightTemplateConfig } from "./libs/config";
 
 export default function starlightTemplatePlugin(
 	userConfig?: StarlightTemplateConfig,
@@ -17,13 +17,15 @@ export default function starlightTemplatePlugin(
 	const starlightTemplateConfig =
 		StarlightTemplateConfigSchema.safeParse(userConfig);
 
-	// Get absolute path to the SkipLink component
-	const skipLinkPath = join(__dirname, "overrides", "SkipLink.astro");
+	// Get absolute path to the component
+	const accentSectionPath = join(__dirname, "components", "AccentSection.astro");
 
 	return {
-		name: "starlight-gtm",
+		name: "starlight-plugin-template",
 		hooks: {
 			"config:setup": async ({ updateConfig, logger, addIntegration }) => {
+
+				logger.info(`Node environment: ${nodeEnv}`);
 				const parsedSuccess = starlightTemplateConfig.success;
 				if (!parsedSuccess) {
 					logger.error(`${starlightTemplateConfig.error.message}`);
@@ -35,17 +37,11 @@ export default function starlightTemplatePlugin(
 
 				logger.info(`Reading template parameter: ${templateParameter}`);
 
-				// updateConfig({
-				// 	components: {
-				// 		SkipLink: skipLinkPath,
-				// 	},
-				// 	head: [
-				// 		{
-				// 			tag: "script",
-				// 			content: gtmHeadScript,
-				// 		},
-				// 	],
-				// });
+				updateConfig({
+					components: {
+						AccentSection: accentSectionPath,
+					},
+				});
 
 				addIntegration({
 					name: "starlight-template-integration",
