@@ -1,0 +1,30 @@
+{
+  "name": "starlight-plugin-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+	"exports": {
+		".": "./index.ts",
+		"./package.json": "./package.json"
+	},
+	"peerDependencies": {
+		"@astrojs/starlight": "catalog:"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.1",
+		"@types/node": "^24.10.1",
+		"tsdown": "^0.16.7",
+		"typescript": "^5.9.3"
+	},
+  "keywords": [
+    "astro",
+    "starlight",
+    "plugin"
+  ],
+  "author": "jbend",
+  "license": "MIT",
+  "packageManager": "pnpm@10.17.0"
+}
