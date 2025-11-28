@@ -1,9 +1,11 @@
 {
 	"name": "starlight-plugin-template",
-	"version": "1.0.0",
+	"description": "Starlight plugin template for creating new Starlight plugins",
+	"version": "0.0.1",
 	"type": "module",
-	"description": "",
-	"main": "index.js",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
 	"scripts": {
 		"build": "tsdown --format esm --format cjs",
 		"dev": "tsdown ./index.ts --watch"
