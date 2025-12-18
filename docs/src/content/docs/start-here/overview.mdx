@@ -1,0 +1,60 @@
+---
+title: Overview
+description: The why and how of this template was created.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+
+Starlight Plugins are a powerful way to extend the functionality of Starlight. With plugins you can create themes,
+add new components, and customize existing ones. Building new plugins from scratch can be challenging, thankfully 
+many plugins have source code and serve as a great resource for learning the different approaches you can take.
+
+<Aside>This template attemts to provide a starting point for building new plugins quickly by providing an opinionated structure 
+and configuration based on common patterns found in many existing plugins.</Aside>
+
+
+## Project Features
+
+- Monorepo management with [pnpm workspaces](https://pnpm.io/workspaces).
+- Starlight documentation and demo for the plugin.
+- [Concurrently](https://github.com/open-cli-tools/concurrently) for faster development.
+- [Biome](https://biomejs.dev/) for linting and formatting.
+- Changeset for versioning and publishing [Changesets](https://github.com/changesets/changesets).
+- GitHub [template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) to easily get started.
+
+## Plugin Features
+
+- Adding a **new** Starlight component.
+- Creating and using plugin configuration parameters.
+- Override Starlight component <Badge text="TODO" variant="note" /> .
+
+
+## Project Structure
+
+import { FileTree } from '@astrojs/starlight/components';
+
+Highlight the important files and directories in the project.
+
+<FileTree>
+
+- docs/ - Plugin documentation and demo.
+  - public/
+  - src/
+  - astro.config.mjs - Uses the plugin.
+  - package.json
+  - README.md
+- packages/
+  - starlight-plugin-template/ - The plugin itself.
+    - libs/
+      - config.ts - The plugin configuration.
+      - vite.ts - The plugin Vite integration.
+    - index.ts - The plugin entry point.
+    - package.json
+    - README.md
+- biome.json - Biome config (linting and formatting).
+- package.json
+- pnpm-workspace.yaml - Manage common dependencies.
+- README.md
+
+</FileTree>

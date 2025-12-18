@@ -29,8 +29,15 @@ export default defineConfig({
 					label: "Start Here",
 					items: [
 						// Each item here is one entry in the navigation menu.
+						{ label: "Overview", slug: "start-here/overview" },
 						{ label: "Getting Started", slug: "start-here/getting-started" },
-						{ label: "Demo", slug: "start-here/demo" },
+					],
+				},
+				{
+					label: "Demo",
+					items: [
+						// Each item here is one entry in the navigation menu.
+						{ label: "AccentSection", slug: "demo/accent-section" },
 					],
 				},
 			],

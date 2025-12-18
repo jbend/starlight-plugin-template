@@ -3,16 +3,39 @@ title: Getting Started
 description: Get up and running quickly with the Starlight Plugin Template.
 ---
 
-## Step 1: Install the Starlight Plugin Template
+import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import useTemplate from '@assets/use-template.webp';
 
-```bash
-pnpm add starlight-plugin-template
-```
+## Prerequisites
 
-## Step 2: Configure the Starlight Plugin Template
+The only notable prerequisite is [pnpm](https://pnpm.io/) 10.x or higher. 
 
-```ts
-const config = {
-  plugins: [starlightPluginTemplate()],
-};
-```
+## From zero to plugin
+
+<Steps>
+
+1. Create new repository from the template.
+
+    Navigate to this projects [GitHub repo](https://github.com/jbend/starlight-plugin-template) and click "Use this template" button:
+    <Image src={useTemplate} alt="Use template" />
+    Select "Create a new reopository" and follow the instructions.
+
+2. Clone the repo locally.
+
+    ```bash
+    git clone https://github.com/<username>/<repository-name>.git
+    ```
+3. Install dependencies.
+
+    ```bash
+    pnpm install
+    ```
+4. Run the development server. `pnpm dev`
+
+    ```bash
+    pnpm dev
+    ```
+</Steps>
+
+You should now have this documentation site running locally at `http://localhost:4321`.

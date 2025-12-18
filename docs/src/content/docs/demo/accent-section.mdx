@@ -1,0 +1,43 @@
+---
+title: Demo
+description: Demo AccentSection
+---
+
+import AccentSection from "starlight-plugin-template/components/AccentSection.astro";
+
+_What trivial component do you make to demo a plugin?_
+
+## The AccentSection
+
+The AccentSection component demonstrates:
+
+- Adding a new component to the plugin.
+- Using slots with the component.
+- Passing plugin configuration to the component.
+
+The plugin configuration is passed to the component via the `templateParameter` property.
+
+```json title="astro.config.mjs"
+  ...
+  plugins: [
+    starlightPluginTemplate({
+      templateParameter: "Hello, Starlight!",
+    }),
+  ],
+  ...
+```
+
+```mdx
+import AccentSection from "starlight-plugin-template/components/AccentSection.astro";
+
+<AccentSection>
+  <p>This is a demo of the AccentSection component.</p>
+</AccentSection>
+```
+
+The acc
+
+<AccentSection>
+  <p>This is a demo of the AccentSection component.</p>
+</AccentSection>
+
