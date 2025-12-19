@@ -4,10 +4,8 @@
 	"description": "Starlight Plugin Template",
 	"main": "index.js",
 	"scripts": {
-		"dev": "concurrently \"pnpm --filter starlight-plugin-template-docs dev\" \"pnpm --filter starlight-plugin-template  build --watch\"",
-		"build": "pnpm --filter starlight-plugin-template build",
-		"build:docs": "pnpm --filter starlight-plugin-template-docs build",
-		"build:all": "pnpm --filter starlight-plugin-template build && pnpm --filter starlight-plugin-template-docs build",
+		"dev": "pnpm --filter starlight-plugin-template-docs dev",
+		"build": "pnpm --filter starlight-plugin-template-docs build",
 		"test": "pnpm -r test",
 		"check": "astro check --root docs",
 		"lint": "biome check --write",
@@ -29,7 +27,6 @@
 		"@changesets/changelog-github": "^0.5.2",
 		"@changesets/cli": "^2.29.8",
 		"@types/node": "^24.10.1",
-		"astro": "catalog:",
-		"concurrently": "^9.2.1"
+		"astro": "catalog:"
 	}
 }
